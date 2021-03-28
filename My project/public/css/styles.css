@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&family=Overpass:wght@300&family=Yanone+Kaffeesatz:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.header-logo{
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.header-logo:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: 2s;
+}
+
+@keyframes shake {
+    0% {transform: translate(1px, 1px) rotate(0deg);}
+    10% {transform: translate(-1px, 2px) rotate(-1deg);}
+    20% {transform: translate(-6px, 1px) rotate(0deg);}
+    30% {transform: translate(4px, 0px) rotate(1deg);}
+    40% {transform: translate(3px, -1px) rotate(0deg);}
+    50% {transform: translate(-2px, 2px) rotate(-1deg);}
+    60% {transform: translate(-4px, 1px) rotate(0deg);}
+    70% {transform: translate(5px, 1px) rotate(-1deg);}
+    80% {transform: translate(-5px, -1px) rotate(1deg);}
+    90% {transform: translate(6px, 2px) rotate(0deg);}
+    100% {transform: translate(4px, -2px) rotate(-1deg);}
+}
+
+.wrap {
+    background: url(../images/main.jpg) no-repeat center top / cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-size: cover;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 80px;
+    background: linear-gradient(to top, transparent, rgba(0,0,0,0.4));
+}
+
+header .menu {
+    float: right;
+    margin-top: 5px;
+}
+
+header ul li{
+    display: inline-block;
+
+}
+
+header ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    margin: 0 25px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+header ul li a:hover{
+    color: greenyellow;
+    transition: .3s;
+}
+
+.wave {
+    position: absolute;
+    width: 100%;
+    bottom: -70px;
+    color: #fff;
+    opacity: 1;
+}
+
+.content-main {
+    max-width: 50%;
+    padding: 200px 80px  0;
+    color: white;
+}
+
+.content-main h1 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.content-main p {
+    font-size: 30px;
+    padding: 25px 0;
+    font-weight: 300;
+}
+
+.content-main .btn-header {
+    margin-top: 20px;
+}
+
+.content-main a {
+    display: inline-block;
+    padding: 15px 45px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-radius: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content-main .btn-1 {
+    background-color: rgb(255, 208, 0);
+}
+
+.Todo-logo {
+    text-align: center;
+    font-size: 100px;
+    text-shadow: 1px 2px 3px black, 0 0 1em rgb(238, 44, 92);
+    color: rgb(231, 5, 81);
+    padding-bottom: 80px;
+}
+
+.row {
+    padding-top: 80px;
+}
+
+.todo_data {
+    text-decoration: none;
+    padding-top: 8px;
+}
+
+
