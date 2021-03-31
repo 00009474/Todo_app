@@ -11,26 +11,25 @@ block content
             .form-group.mb-3
               label(for='todo') Add your note:
               input.form-control#todo(type='text', name="title")
-            input(type="submit", value="Add", href='/todo/create').btn.btn-outline-success.btn-lg
-              each todo in todos
-                .col-md-8  
-                  table.table.table-success.table-striped
-                    thead
-                    tr 
-                      th(scope='col') Id
-                      th(scope='col') Note:
-                      th(scope='col') Edit
-                      th(scope='col') Delete
-                    tbody
-                      tr
-                      th(scope='row')
-                      td
-                        p(href="/add/" + todo.id).todo_data= todo.body
-                      td
-                        button.btn.btn-info.btn-lg 
-                          i.fas.fa-pen-square
-                      td
-                        button
-                         a(href="/add/" + todo.id + "/delete").btn.btn-danger.btn-lg 
-                            i.far.fa-trash-alt
-                      
+            input(type="submit", value="Add").btn.btn-outline-success.btn-lg    
+    .col-md-8 
+      table.table.table-dark.table-striped
+        thead
+          tr 
+            th(scope='col') Id
+            th(scope='col') Note:
+            th(scope='col') Edit
+            th(scope='col') Delete
+        tbody
+           tr
+            th(scope='row')
+            td 
+             // p(href="/add/" + todo.id).todo_data= todo.body
+            td
+              button.btn.btn-info.btn-lg 
+                i.fas.fa-pen-square
+            td
+              button
+                //a(href="/add/" + todo.id + "/delete").btn.btn-danger.btn-lg 
+                  i.far.fa-trash-alt
+                            

@@ -1,18 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs')
+const DbFolder = './data/tododata.json'
 
 const indexController = require('../controllers/index')
 
 let todoDb = []
 
-fs.readFile('./data/tododata.json', (err, data) => {
+fs.readFile(DbFolder, (err, data) => {
 	if (!err) {
-		notesDb = JSON.parse(data)
+		todoDb = JSON.parse(data)
 	}
 })
 
 router.get('/', indexController.getIndex)
+
+router.get('/', (req, res) => {
+	fs.readFile(DbFolder, (err, data) =>{
+		const todos = JSON.parse(data)
+		res.render('index', {todos: todos})
+	})
+})
 
 router.get ('/add', (req, res) => {
     res.render('index', {show: req.query.success})
@@ -30,7 +38,7 @@ router.post('/add', (req, res) => {
     }
 
     todoDb.push(note_todo)
-    fs.writeFile('./data/tododata.json', JSON.stringify(todoDb), (err) => {
+    fs.writeFile(DbFolder, JSON.stringify(todoDb), (err) => {
         if (err) {
 			res.redirect('/add?success=0')
 		} else {
@@ -40,9 +48,11 @@ router.post('/add', (req, res) => {
 })
 
 router.get('/add', (req, res) => {
-	res.render('add', {add: todoDb})
+	res.render('todos', {todos: todoDb})
 })
 
+
+// Get By ID
 router.get('/add/:id', (req, res) => {
 	const id = parseInt(req.params.id)
 	const todo = todoDb.find(todo => todo.id === id)
@@ -50,6 +60,8 @@ router.get('/add/:id', (req, res) => {
 	res.render('todo', {todo: todo})
 })
 
+
+// Delete
 router.get('/add/:id/delete', (req, res) => {
 	const id = parseInt(req.params.id)
 	const index = todoDb.findIndex(todo => todo.id === id)
@@ -64,5 +76,6 @@ router.get('/add/:id/delete', (req, res) => {
 		}
 	})
 })
+
 
 module.exports = router;
